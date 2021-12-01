@@ -5,11 +5,11 @@
       "label": "Approval",
       "type": "textfield",
       "id": "Field_05ndrdr",
-      "key": "approval",
+      "key": "results",
       "description": "Approval of the contract",
       "validate": {
         "required": true,
-        "regularExpressionPattern": "Yes|No"
+        "regularExpressionPattern": "approved|rejected"
       }
     },
     {
@@ -45,5 +45,5 @@
     }
   ],
   "type": "default",
-  "id": "Form_17ot5wx"
+  "id": "approvalForm"
 }

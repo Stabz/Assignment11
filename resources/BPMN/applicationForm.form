@@ -5,7 +5,7 @@
       "label": "Name",
       "type": "textfield",
       "id": "Field_0o3azgt",
-      "key": "Name",
+      "key": "name",
       "validate": {
         "required": true
       },
