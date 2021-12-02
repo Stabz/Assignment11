@@ -10,28 +10,23 @@ const config = { baseUrl: "http://localhost:8080/engine-rest", use: logger };
 const client = new Client(config);
 
 // susbscribe to the topic: 'Validation'
-client.subscribe("Validation", async function({ task, taskService }) {
-  
-   const name = task.variables.get("name");
-   const annualIncome = task.variables.get("income");
-   const maritalStatus = task.variables.get("status");
+client.subscribe("Validation", async function ({ task, taskService }) {
+  const name = task.variables.get("name");
+  const annualIncome = task.variables.get("annual_income");
+  const loanAmount = task.variables.get("loan_amount");
+  const personalStatus = task.variables.get("personal_status");
 
-   
-   console.log(name + ' aninc: ' + annualIncome + ' marialstat_ ' + maritalStatus);
+  console.log("Name:", name);
+  console.log("Annual Income:", annualIncome);
+  console.log("Personal Status:", personalStatus);
+  console.log("Loan amount:", loanAmount);
 
-   //variables to send back
-   const reply = new Variables();
+  //variables to send back
+  const reply = new Variables();
 
-   //check income and validate
-   if(annualIncome>0){
-     reply.set("validationVar", "passed");
-    }else{
-     reply.set("validationVar", "failed");
-   }
+  //check income and validate
+  reply.set("validationVar", annualIncome > 0);
 
-
-   
   // complete the task
-  await taskService.complete(task,reply);
-  
+  await taskService.complete(task, reply);
 });

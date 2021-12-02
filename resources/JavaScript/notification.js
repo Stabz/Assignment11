@@ -11,8 +11,22 @@ const client = new Client(config);
 
 // susbscribe to the topic: 'Notification'
 client.subscribe("Notification", async function({ task, taskService }) {
+
+  const reason = task.variables.get("rejection_message");
+  const name = task.variables.get("name");
    
-   console.log("The task failed successfully");
+  let message = "Dear " + name + ", \n" + 
+                "We are sorry to inform you that your loan application has been rejected.\n\n";
+
+  if(reason) {
+    message += "The reason given from the Bank Agent is: \n" + String(reason) + "\n\n";
+  }
+
+  message += "Best regards\nThe Super Bank";
+
+
+
+   console.log(message);
    
   // complete the task
   await taskService.complete(task);
