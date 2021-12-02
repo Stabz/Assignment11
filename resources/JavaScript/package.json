@@ -1,0 +1,16 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "camunda-external-task-client-js": "^2.1.1",
+    "concurrently": "^6.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"node validation.js\" \"node product_details.js\" \"node send_copy_of_contract_to_client.js\" \"node notification.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cosby, dima",
+  "license": "ISC"
+}
