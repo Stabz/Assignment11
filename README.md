@@ -1,5 +1,6 @@
 # Assignment11
 assignment 11 system integration
+![Camunda](images/BPMN.png)
 
 ### Preconditions
 You need to have camunda on your PC, and know the basics of it.
